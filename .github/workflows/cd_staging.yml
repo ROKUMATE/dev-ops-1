@@ -10,7 +10,7 @@ jobs:
         steps:
             - run: |
                   echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
-                  ssh -i ~/ssh_key root@139.59.72.244
+                  ssh -i ~/ssh_key root@64.227.129.13
                   cd dev-ops-1 && git pull
                   pnpm install 
                   pnpm run build 
