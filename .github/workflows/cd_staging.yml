@@ -4,6 +4,7 @@ on:
         branches:
             - 'main'
 jobs:
+    uses: ubuntu-latest
     redeploy_everything:
         name: deploying everything to the staging cluster
 
