@@ -4,13 +4,12 @@ on:
         branches:
             - 'main'
 jobs:
-    uses: ubuntu-latest
     redeploy_everything:
         name: deploying everything to the staging cluster
-
+        runs-on: ubuntu-latest
         steps:
-            -name: SSH Into server
-            -run: |
+            name: SSH Into server
+            run: |
                 echo ${{secrets.SSH_PRIVATE_KEY}} &> ~/ssh_key
                 ssh -i ~/ssh_key root@139.59.72.244
                 cd dev-ops-1 && git pull
