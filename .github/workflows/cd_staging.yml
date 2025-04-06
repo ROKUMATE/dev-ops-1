@@ -10,6 +10,8 @@ jobs:
         steps:
             - run: |
                   echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
+                  mkdir .ssh
+                  echo "${{secrets.KNOWN_HOSTS}}" &> ~/.ssh/known_hosts
                   ssh -i ~/ssh_key root@64.227.129.13
                   cd dev-ops-1 && git pull
                   pnpm install 
